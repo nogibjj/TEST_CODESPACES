@@ -1,2 +1,5 @@
+mlflow
 black
 pylint
+ipython
+sklearn
