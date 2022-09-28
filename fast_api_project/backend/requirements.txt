@@ -1,0 +1,4 @@
+fastapi==0.78.0
+gunicorn==20.1.0
+transformers==4.20.1
+uicorn==0.18.2

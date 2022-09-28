@@ -1,5 +1,11 @@
 mlflow
 black
 pylint
+pytest
+databricks
+databricks-cli
+databricks-sql-connector
+databricks-connect==7.3.*
+fastapi
 ipython
 sklearn
