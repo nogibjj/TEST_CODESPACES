@@ -1,7 +1,6 @@
-[![Python application test with Github Actions](https://github.com/nogibjj/TEST_CODESPACES/actions/workflows/main.yml/badge.svg)(https://github.com/nogibjj/TEST_CODESPACES/actions/workflows/main.yml)
+![Python application test with Github Actions](https://github.com/nogibjj/TEST_CODESPACES/actions/workflows/main.yml/badge.svg)
 
 
 # TEST_CODESPACES
-author information:xc184 Echo Chen
-BMI Calculator a program to calculate BMI(Body Mass Index)
-python3 bmi_calc.py
+This is a collection of exercises from the data engineering class and projects created on GitHub code space
+
