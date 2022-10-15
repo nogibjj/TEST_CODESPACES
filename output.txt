@@ -1,0 +1,17 @@
+                    INPUT                    ANSWER                 INFERENCE
+Overall Accuracy: 93.62%
+ provides                      VERB                      VERB     True
+                        a                       DET                       DET     True
+                  natural                       ADJ                       ADJ     True
+               transition                      NOUN                      NOUN     True
+                     into                       ADP                       ADP     True
+                      the                       DET                       DET     True
+                     life                      NOUN                      NOUN     True
+                       of                       ADP                       ADP     True
+                      the                       DET                       DET     True
+                    local                       ADJ                       ADJ     True
+                   church                      NOUN                      NOUN     True
+                      and                      CONJ                      CONJ     True
+                      its                       DET                       DET     True
+            organizations                      NOUN                      NOUN     True
+                        .                         .                         .     True
