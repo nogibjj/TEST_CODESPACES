@@ -24,3 +24,5 @@ def nlp_qna(context, question):
     res = nlp(QA_input)
 
     return res
+
+# gr.Interface(fn=nlp_qna, inputs=["textbox", "textbox"], outputs="textbox").launch()

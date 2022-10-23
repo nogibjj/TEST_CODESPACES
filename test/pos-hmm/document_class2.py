@@ -75,13 +75,26 @@ def main():
             for _ in nltk.corpus.brown.fileids(categories=[category])
         ]
     )
-    tf_idf = []
-    for document in documents:
-        for term in terms:
-            tf = document.count(term) / len(document)
-            idf = log(len(documents) / sum([term in d for d in documents]) + 1)
-            tf_idf.append(tf * idf)
-    X = np.array(tf_idf).reshape(len(documents), len(terms))
+    count=0
+    tf = np.array([
+            [
+                np.log10( 1 + document.count(term))  for term in terms
+            ]
+            for document in documents
+        ])
+
+
+    idf = []
+
+    for term in terms:
+        for document in documents:
+            temp = np.unique(document)
+            if term in temp:
+                count += 1
+        idf.append(np.log10(len(documents)/(count)))
+        count = 0
+
+    X = tf * idf
 
     knn = KNN()
 
