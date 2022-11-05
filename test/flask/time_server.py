@@ -4,30 +4,37 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
+@app.route('/', methods=['GET'])
+def server_status():
+    return "Server is running"
+
+
 @app.route("/time", methods=["GET"])
 def time():
     """return current time"""
-    return jsonify(datetime.now().strftime("%H:%M:%S"))
+    current_time = datetime.now().strftime("%H:%M:%S")
+    return jsonify(str(current_time))
 
 
 @app.route("/date", methods=["GET"])
 def date():
     """return current date"""
-    return jsonify(datetime.now().strftime("%Y-%m-%d"))
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    return jsonify(str(current_date))
 
 
 @app.route("/age", methods=["POST"])
 def age():
     """incoming_json={"date":<"%m/%d/%Y">,"units":<year>}
-    returns the length of time between the given date and the current time
+    returns the length of time between the given date and 
+    the current time
     """
     incoming_json = request.get_json()
     date = incoming_json["date"]
     units = incoming_json["units"]
     if units == "years":
-        return jsonify(
-            (datetime.now() - datetime.strptime(date, "%m/%d/%Y")).days / 365
-        )
+        age = datetime.now().year - datetime.strptime(date, "%m/%d/%Y").year
+        return jsonify(float(age))
     else:
         return jsonify("units not supported")
 
@@ -36,26 +43,23 @@ def age():
 def until_next_meal(meal):
     """Returns the number of hours until that meal"""
     if meal == "breakfast":
-        return jsonify(
-            (
-                datetime.now().replace(hour=8, minute=0, second=0) - datetime.now()
-            ).seconds
-            / 3600
-        )
+        breakfast = (
+            datetime.now().replace
+            (hour=8, minute=0, second=0) - datetime.now()
+        ).seconds / 3600
+        return jsonify((float(round(breakfast, 1))))
     elif meal == "lunch":
-        return jsonify(
-            (
-                datetime.now().replace(hour=12, minute=0, second=0) - datetime.now()
-            ).seconds
-            / 3600
-        )
+        lunch = (
+            datetime.now().replace
+            (hour=12, minute=0, second=0) - datetime.now()
+        ).seconds / 3600
+        return jsonify((float(round(lunch, 1))))
     elif meal == "dinner":
-        return jsonify(
-            (
-                datetime.now().replace(hour=18, minute=0, second=0) - datetime.now()
-            ).seconds
-            / 3600
-        )
+        dinner = (
+            datetime.now().replace
+            (hour=18, minute=0, second=0) - datetime.now()
+        ).seconds / 3600
+        return jsonify((float(round(dinner, 1))))
     else:
         return jsonify("meal not supported")
 
