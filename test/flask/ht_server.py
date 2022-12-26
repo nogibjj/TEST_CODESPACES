@@ -8,7 +8,6 @@ db_attend = []
 logging.basicConfig(filename='server.log', level=logging.INFO)
 
 # %% Echo's code
-e
 
 
 @app.route("/", methods=["GET"])
@@ -51,6 +50,8 @@ def new_patient():
         patient_age = int(patient_age)
     except ValueError:
         return jsonify("Patient age must be an integer"), 400
+    new_patient['heart_rate']= []
+    new_patient['timestamp']= []
     db_patient.append(new_patient)
     return jsonify(db_patient), 200
 
